@@ -146,3 +146,9 @@ Status codes: `401` not logged in · `403` not allowed · `404` not found / some
   of Incoterms 2020.
 - Deal creation writes the first history row (`null → DRAFT`).
 - Admins can transition any deal; there is no deal delete (audit trail).
+
+
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
