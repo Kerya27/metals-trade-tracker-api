@@ -1,0 +1,35 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-metals}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-metals}
+      POSTGRES_DB: ${POSTGRES_DB:-metals}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  api:
+    build: .
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-metals}:${POSTGRES_PASSWORD:-metals}@db:5432/${POSTGRES_DB:-metals}
+      # Dev fallback so `docker compose up` works without .env. Set a real secret in .env.
+      JWT_SECRET: ${JWT_SECRET:-dev-only-insecure-secret-change-me-please}
+      ADMIN_EMAILS: ${ADMIN_EMAILS:-admin@example.cz}
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata:
