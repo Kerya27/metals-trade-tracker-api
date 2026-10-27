@@ -1,7 +1,5 @@
 # Metals Trade Tracker API
 
-[![CI](https://github.com/YOUR_GITHUB_USERNAME/metals-trade-tracker-api/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR_GITHUB_USERNAME/metals-trade-tracker-api/actions/workflows/ci.yml)
-
 REST API for a metals trading desk: register **suppliers**, publish **offers** (aluminium dross,
 slag, ingots…) and move **deals** through a controlled workflow
 `DRAFT → NEGOTIATION → CONTRACTED → SHIPPED → CLOSED` (or `CANCELLED` before shipping),
@@ -9,8 +7,7 @@ with a tamper-proof status history.
 
 Built as a portfolio project modelled on real commodity-trading work.
 
-![Swagger UI](docs/swagger-ui.png)
-<!-- Screenshot placeholder: save a screenshot of http://localhost:8000/docs as docs/swagger-ui.png -->
+<!-- Screenshot placeholder: add docs/swagger-ui.png and put ![Swagger UI](docs/swagger-ui.png) here -->
 
 ## Stack
 
@@ -21,7 +18,7 @@ GitHub Actions
 ## Run it (Docker)
 
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/metals-trade-tracker-api.git
+git clone https://github.com/Kerya27/metals-trade-tracker-api.git
 cd metals-trade-tracker-api
 cp .env.example .env          # optional: works without it using dev defaults
 docker compose up --build
