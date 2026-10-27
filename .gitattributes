@@ -1,0 +1,3 @@
+# Keep LF endings so shell commands in containers work when cloned on Windows
+* text=auto eol=lf
+*.png binary

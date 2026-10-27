@@ -1,0 +1,18 @@
+[project]
+name = "metals-trade-tracker-api"
+version = "1.0.0"
+description = "REST API for tracking metal supplier offers and deals with an auditable status workflow."
+requires-python = ">=3.12"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+extend-exclude = ["alembic/versions"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM", "N", "RUF"]
+ignore = ["RUF012"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
